@@ -25,5 +25,6 @@ class CsvSort
         @sortedlist=sorted.concat(left).concat(right)
     end
 end
-
+@sortList=CsvSort.new
+@sortList.mergesort($arraysort)
 
