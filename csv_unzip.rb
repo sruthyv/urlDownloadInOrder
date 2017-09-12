@@ -2,6 +2,7 @@ require 'csv'
 require 'rubygems'
 require 'zip'
 class CsvUnzip
+
    def csv_unzip (file, destination)
       Zip::File.open(file) do |zip_file|
          zip_file.each do |f|
@@ -13,17 +14,22 @@ class CsvUnzip
       end
       url="#{@url}"
       i=1
-      $arraysort=[]
-      CSV.foreach(a) do |row| 
-         $arraysort << row[1]
+      @arraysort=[]
+      CSV.foreach(url) do |row| 
+         @arraysort << row[1]
          i=i+1
          if (i==1000) 
             break
          end
       end
       # puts ($ar)
-      File.open("tempunzip", 'w') { |file| file.puts($arraysort) }
-   end        
+      File.open("tempunzip", 'w') { |file| file.puts(@arraysort) }
+   end 
+
+   def returnUnzipList
+    return @arraysort
+   end    
 end
+
 
 
