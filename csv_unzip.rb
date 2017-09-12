@@ -1,6 +1,7 @@
 require 'csv'
 require 'rubygems'
 require 'zip'
+require_relative 'write_file'
 class CsvUnzip
 
    def csv_unzip (file, destination)
@@ -30,6 +31,14 @@ class CsvUnzip
     return @arraysort
    end    
 end
+
+@listUnzip=CsvUnzip.new
+@listUnzip.csv_unzip("top.zip", "/home/user/urlDownloadInOrder")
+@listUnzipBody=@listUnzip.returnUnzipList
+
+
+@write=WriteFile.new
+@write.write_file("unzipList",@listUnzipBody)
 
 
 
