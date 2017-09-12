@@ -6,7 +6,7 @@ class CsvDownloadTest < Minitest::Test
         @download.csv_download
     end                        
     def test_is_file_downloaded  
-        assert File.exist?("/home/user/test1/top.zip"),true
+        assert File.exist?("/home/user/urlDownloadInOrder/csvZipFile.zip"),true
     end
 end
 
